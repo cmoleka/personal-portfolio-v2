@@ -5,6 +5,7 @@
       <slot name="intro__name"></slot>
       <slot name="intro__work"></slot>
       <slot name="intro__paragraphe"></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {}
   width: 80%;
 }
 .headline__container {
+  width: 100%;
   padding-top: 4rem;
   padding-bottom: 4rem;
 }

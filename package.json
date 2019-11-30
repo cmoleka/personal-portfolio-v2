@@ -2,7 +2,7 @@
   "name": "V2",
   "version": "1.0.0",
   "description": "Personal website V2",
-  "author": "CArlo Moleka",
+  "author": "Carlo Moleka",
   "private": true,
   "scripts": {
     "dev": "nuxt",

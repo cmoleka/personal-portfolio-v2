@@ -63,48 +63,38 @@
       </h1>
       <div slot="section__content">
         <SectionWorkExperience>
-          <h1 slot="work__position" class="work__position h3 text-white-50">
-            Engineer
-          </h1>
-          <h2 slot="work__company_name" class="work__company_name h3 ml-2">
-            Itraws
+          <h2
+            slot="work__company_name--tab"
+            v-for="work in workExperienceData"
+            v-on:click.prevent="setActive(work.companyName)"
+            :class="{ work__tab__active: isActive(work.companyName) }"
+            class="work__company_name work__tab mb-0 py-2"
+          >
+            {{ work.companyName }}
           </h2>
-          <p slot="work__time" class="text-white">
-            April 2013 - present
-          </p>
-          <ul slot="work__tasks" class="section__list">
-            <li class="text-white">
-              Excepteur sint occaecat cupidatat non proident.
-            </li>
-            <li class="text-white">
-              Excepteur sint occaecat cupidatat non proident.
-            </li>
-            <li class="text-white">
-              Excepteur sint occaecat cupidatat non proident.
-            </li>
-          </ul>
-        </SectionWorkExperience>
-        <SectionWorkExperience>
-          <h1 slot="work__position" class="work__position h3 text-white-50">
-            Engineer
-          </h1>
-          <h2 slot="work__company_name" class="work__company_name h3 ml-2">
-            Itraws
-          </h2>
-          <p slot="work__time" class="text-white">
-            April 2013 - present
-          </p>
-          <ul slot="work__tasks" class="section__list">
-            <li class="text-white">
-              Excepteur sint occaecat cupidatat non proident.
-            </li>
-            <li class="text-white">
-              Excepteur sint occaecat cupidatat non proident.
-            </li>
-            <li class="text-white">
-              Excepteur sint occaecat cupidatat non proident.
-            </li>
-          </ul>
+          <div
+            slot="work__details"
+            v-for="work in workExperienceData"
+            :class="{ work__tab__display: isActive(work.companyName) }"
+            class="work__details ml-4"
+          >
+            <div class="work__title">
+              <h1 class="work__position h5 text-white-50">
+                {{ work.position }}
+              </h1>
+              <h2 class="work__company_name">
+                {{ work.companyName }}
+              </h2>
+            </div>
+            <p class="text-white">
+              {{ work.time }}
+            </p>
+            <ul class="section__list">
+              <li v-for="task in work.tasks" class="text-white">
+                {{ task }}
+              </li>
+            </ul>
+          </div>
         </SectionWorkExperience>
       </div>
     </section-component>
@@ -113,7 +103,7 @@
         Some of my projects
       </h1>
       <div slot="section__content">
-        ok
+        <projects> </projects>
       </div>
     </section-component>
     <section-component>
@@ -121,7 +111,26 @@
         Contact me
       </h1>
       <div slot="section__content">
-        ok
+        <headline>
+          <h2
+            slot="intro__name"
+            class="text-white text-center display-4 font-weight-bold text-capitalize"
+          >
+            Get in touch
+          </h2>
+          <p slot="intro__paragraphe" class="text-white-50 text-center lead ">
+            Although I'm not currently looking for freelance opportunities, my
+            inbox is always open. Whether for a potential project or just to say
+            hi, I'll try my best to answer your email!
+          </p>
+          <button-component>
+            <a slot="Button__Text" href="mailto:cmoleka@icloud.com">
+              <p class="py-2 px-4 mb-0 Button__Style mt-2">
+                Mail me
+              </p>
+            </a>
+          </button-component>
+        </headline>
       </div>
     </section-component>
   </div>
@@ -131,11 +140,51 @@
 import Headline from '~/components/Headline.vue'
 import SectionComponent from '~/components/Section.vue'
 import SectionWorkExperience from '~/components/SectionWorkExperience'
+import ButtonComponent from '~/components/Button.vue'
+import Projects from '~/components/SectionProjects.vue'
 export default {
   components: {
     Headline,
     SectionComponent,
-    SectionWorkExperience
+    SectionWorkExperience,
+    ButtonComponent,
+    Projects
+  },
+  data() {
+    return {
+      activeWork: 'Itraws',
+      workExperienceData: [
+        {
+          companyName: 'Itraws',
+          position: 'Engineer',
+          time: 'April 2013 - Present',
+          tasks: [
+            'Excepteur sint occaecat cupidatat non proident.',
+            'Excepteur sint occaecat cupidatat non proident.',
+            'Excepteur sint occaecat cupidatat non proident.'
+          ]
+        },
+        {
+          companyName: 'Victoria Analytica',
+          position: 'Data Analyst',
+          time: 'April 2019 - Present',
+          tasks: [
+            'Excepteur sint occaecat cupidatat non proident.',
+            'Excepteur sint occaecat cupidatat non proident.',
+            'Excepteur sint occaecat cupidatat non proident.'
+          ]
+        }
+      ]
+    }
+  },
+  computed: {},
+  methods: {
+    isActive(work) {
+      return this.activeWork === work
+    },
+    setActive(work) {
+      this.activeWork = work
+    }
   }
 }
 </script>

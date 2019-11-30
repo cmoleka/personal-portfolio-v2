@@ -31,7 +31,7 @@ export default {
 .section__container {
 }
 hr {
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.233);
   width: 24rem;
 }
 .sectionTitle {
@@ -56,6 +56,7 @@ hr {
   width: 100%;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
 }
 .section__content__left {
   max-width: 55%;
