@@ -4,7 +4,6 @@
       <div class="sectionTitle pb-4">
         <div class="sectionTitle__container">
           <slot name="section__title"> </slot>
-          <hr class="ml-4" />
         </div>
       </div>
       <slot name="section__content"> </slot>
@@ -18,17 +17,15 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .section__color--bluish {
-  color: #5d7997;
+  color: #649edd;
 }
 .section__color--lead {
   color: rgba(255, 255, 255, 0.5);
 }
 .section-component {
-  width: 80%;
-}
-.section__container {
+  width: 100%;
 }
 hr {
   border-top: 1px solid rgba(255, 255, 255, 0.233);
@@ -40,6 +37,22 @@ hr {
 .sectionTitle__container {
   display: flex;
   flex-wrap: nowrap;
+}
+.sectionTitle__container > h1::before {
+  content: counter(contentIndex) '.';
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 0.75em;
+  color: #649edd;
+  font-family: 'Courier New', Courier, monospace;
+}
+.sectionTitle__container > h1::after {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  width: 30rem;
+  background-color: rgb(168, 178, 209);
+  margin: 0 auto;
 }
 .section__list {
   list-style: none;
@@ -60,8 +73,6 @@ hr {
 }
 .section__content__left {
   max-width: 55%;
-}
-.section__content__right {
 }
 
 .section__content__imageOverlay {

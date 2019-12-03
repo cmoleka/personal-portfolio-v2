@@ -16,7 +16,7 @@ export default {}
 
 <style lang="css" scoped>
 .headline-component {
-  width: 80%;
+  width: 100%;
 }
 .headline__container {
   width: 100%;
@@ -24,7 +24,7 @@ export default {}
   padding-bottom: 4rem;
 }
 .intro__greeting {
-  color: #5d7997;
+  color: #649edd;
   font-size: 1.2em;
 }
 </style>

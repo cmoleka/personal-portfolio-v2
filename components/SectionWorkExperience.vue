@@ -1,5 +1,5 @@
 <template>
-  <div class="work__container pb-3">
+  <div class="work__container">
     <div class="work__tabs--container">
       <slot name="work__company_name--tab" />
     </div>
@@ -17,6 +17,7 @@ export default {}
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  padding: 2rem 0;
 }
 .work__tab {
   cursor: pointer;
@@ -25,6 +26,7 @@ export default {}
 }
 .work__tab__active {
   border-left: 0.1em solid #649edd !important;
+  background-color: #18212b;
 }
 
 .work__tab__display {
@@ -45,6 +47,7 @@ export default {}
 .work__details {
   align-items: flex-start;
   display: none;
+  margin-left: 5rem;
 }
 .work__tabs--container > .work__company_name {
   color: rgba(255, 255, 255, 0.5);
@@ -52,7 +55,7 @@ export default {}
   padding: 0.25em 0.5em;
 }
 .work__company_name {
-  color: #5d7997;
+  color: #649edd;
   font-size: 1.25rem;
 }
 .work__title > .work__company_name:before {

@@ -2,15 +2,18 @@
   <div class="container-fluid">
     <navigation />
     <nuxt />
+    <social-networks />
   </div>
 </template>
 
 /* Script */
 <script>
-import Navigation from '~/components/Navigation'
+import Navigation from '~/components/Navigation.vue'
+import SocialNetworks from '~/components/SocialNetworks.vue'
 export default {
   components: {
-    Navigation
+    Navigation,
+    SocialNetworks
   }
 }
 </script>
@@ -30,7 +33,7 @@ html {
 }
 
 body {
-  background-color: #243241;
+  background-color: #1f2b38;
   letter-spacing: 0.1rem;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <main class="container">
     <headline>
       <h1 slot="intro__greeting" class="intro__greeting">
         Hi my name is,
@@ -65,7 +65,7 @@
         <SectionWorkExperience>
           <h2
             slot="work__company_name--tab"
-            v-for="work in workExperienceData"
+            v-for="work in data.workExperienceData"
             v-on:click.prevent="setActive(work.companyName)"
             :class="{ work__tab__active: isActive(work.companyName) }"
             class="work__company_name work__tab mb-0 py-2"
@@ -74,9 +74,9 @@
           </h2>
           <div
             slot="work__details"
-            v-for="work in workExperienceData"
+            v-for="work in data.workExperienceData"
             :class="{ work__tab__display: isActive(work.companyName) }"
-            class="work__details ml-4"
+            class="work__details"
           >
             <div class="work__title">
               <h1 class="work__position h5 text-white-50">
@@ -103,7 +103,144 @@
         Some of my projects
       </h1>
       <div slot="section__content">
-        <projects> </projects>
+        <projects-featured>
+          <img
+            slot="Projects__Featured_Image"
+            src="https://cmoleka.github.io/img/projects/itraws.png"
+          />
+
+          <h1 slot="Featured__Status" class="text-right">Featured Project</h1>
+          <h2 slot="Featured__Title" class="text-right">Itraws</h2>
+          <p slot="Featured__Description" class="text-white-50">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmo tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <ul slot="Featured__Technologies" class="Featured__Tech--List">
+            <li>Nuxt</li>
+            <li>Contentful</li>
+            <li>Bootstrap</li>
+            <li>Bootstrap</li>
+            <li>Bootstrap</li>
+            <li>Bootstrap</li>
+            <li>Bootstrap</li>
+            <li>Bootstrap</li>
+            <li>Bootstrap</li>
+          </ul>
+          <ul slot="Featured__Links" class="Featured__Links--List">
+            <li>
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                ><font-awesome-icon :icon="['fab', 'github']"
+              /></a>
+            </li>
+            <li>
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                ><font-awesome-icon :icon="['fas', 'external-link-alt']"
+              /></a>
+            </li>
+          </ul>
+        </projects-featured>
+        <projects-single class="mt-4">
+          <div slot="Projects_Single_Details" class="Projects_Single_Details">
+            <h1 slot="Single__Title">Project</h1>
+            <h2 slot="Single__Description">Description</h2>
+            <p slot="Single__Description" class="text-white-50">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmo tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <ul slot="Single__Technologies">
+              <li>Nuxt</li>
+              <li>Contentful</li>
+              <li>Bootstrap</li>
+            </ul>
+            <ul slot="Single__Links" class="Single__Links mt-2">
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fab', 'github']"
+                /></a>
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fas', 'external-link-alt']"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <div slot="Projects_Single_Details" class="Projects_Single_Details">
+            <h1 slot="Single__Title">Project</h1>
+            <h2 slot="Single__Description">Description</h2>
+            <p slot="Single__Description" class="text-white-50">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmo tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <ul slot="Single__Technologies">
+              <li>Nuxt</li>
+              <li>Contentful</li>
+              <li>Bootstrap</li>
+            </ul>
+            <ul slot="Single__Links" class="Single__Links mt-2">
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fab', 'github']"
+                /></a>
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fas', 'external-link-alt']"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <div slot="Projects_Single_Details" class="Projects_Single_Details">
+            <h1 slot="Single__Title">Project</h1>
+            <h2 slot="Single__Description">Description</h2>
+            <p slot="Single__Description" class="text-white-50">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmo tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <ul slot="Single__Technologies">
+              <li>Nuxt</li>
+              <li>Contentful</li>
+              <li>Bootstrap</li>
+            </ul>
+            <ul slot="Single__Links" class="Single__Links mt-2">
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fab', 'github']"
+                /></a>
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fas', 'external-link-alt']"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <div slot="Projects_Single_Details" class="Projects_Single_Details">
+            <h1 slot="Single__Title">Project</h1>
+            <h2 slot="Single__Description">Description</h2>
+            <p slot="Single__Description" class="text-white-50">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmo tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <ul slot="Single__Technologies">
+              <li>Nuxt</li>
+              <li>Contentful</li>
+              <li>Bootstrap</li>
+            </ul>
+            <ul slot="Single__Links" class="Single__Links mt-2">
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fab', 'github']"
+                /></a>
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  ><font-awesome-icon :icon="['fas', 'external-link-alt']"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </projects-single>
       </div>
     </section-component>
     <section-component>
@@ -133,7 +270,7 @@
         </headline>
       </div>
     </section-component>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -141,40 +278,83 @@ import Headline from '~/components/Headline.vue'
 import SectionComponent from '~/components/Section.vue'
 import SectionWorkExperience from '~/components/SectionWorkExperience'
 import ButtonComponent from '~/components/Button.vue'
-import Projects from '~/components/SectionProjects.vue'
+import ProjectsFeatured from '~/components/SectionProjectsFeatured.vue'
+import ProjectsSingle from '~/components/SectionProjectsSingle.vue'
 export default {
   components: {
     Headline,
     SectionComponent,
     SectionWorkExperience,
     ButtonComponent,
-    Projects
+    ProjectsFeatured,
+    ProjectsSingle
   },
   data() {
     return {
       activeWork: 'Itraws',
-      workExperienceData: [
-        {
-          companyName: 'Itraws',
-          position: 'Engineer',
-          time: 'April 2013 - Present',
-          tasks: [
-            'Excepteur sint occaecat cupidatat non proident.',
-            'Excepteur sint occaecat cupidatat non proident.',
-            'Excepteur sint occaecat cupidatat non proident.'
-          ]
+      data: {
+        intro: {
+          greeting: '',
+          name: '',
+          occupation: '',
+          message: ''
         },
-        {
-          companyName: 'Victoria Analytica',
-          position: 'Data Analyst',
-          time: 'April 2019 - Present',
-          tasks: [
-            'Excepteur sint occaecat cupidatat non proident.',
-            'Excepteur sint occaecat cupidatat non proident.',
-            'Excepteur sint occaecat cupidatat non proident.'
-          ]
+        about: {
+          image: '',
+          message: '',
+          skills: {
+            message: '',
+            skills: []
+          }
+        },
+        workExperienceData: [
+          {
+            companyName: 'Itraws',
+            position: 'Engineer',
+            time: 'April 2013 - Present',
+            tasks: [
+              'Excepteur sint occaecat cupidatat non proident.',
+              'Excepteur sint occaecat cupidatat non proident.',
+              'Excepteur sint occaecat cupidatat non proident.'
+            ]
+          },
+          {
+            companyName: 'Victoria Analytica',
+            position: 'Data Analyst',
+            time: 'April 2019 - Present',
+            tasks: [
+              'Excepteur sint occaecat cupidatat non proident.',
+              'Excepteur sint occaecat cupidatat non proident.',
+              'Excepteur sint occaecat cupidatat non proident.'
+            ]
+          }
+        ],
+        projects: [
+          {
+            title: '',
+            image: '',
+            description: '',
+            technologies: [],
+            githubLink: '',
+            websiteLink: '',
+            isFeatured: true
+          }
+        ],
+        contactMe: {
+          headline: '',
+          message: '',
+          button: {
+            text: '',
+            url: ''
+          }
+        },
+        socialMedia: {
+          github: '',
+          twitter: '',
+          instagram: '',
+          linkedin: ''
         }
-      ]
+      }
     }
   },
   computed: {},
@@ -188,3 +368,9 @@ export default {
   }
 }
 </script>
+
+<style lang="css">
+.section-component {
+  counter-increment: contentIndex;
+}
+</style>
