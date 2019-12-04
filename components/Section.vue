@@ -25,7 +25,7 @@ export default {
   color: rgba(255, 255, 255, 0.5);
 }
 .section-component {
-  width: 100%;
+  width: 80%;
 }
 hr {
   border-top: 1px solid rgba(255, 255, 255, 0.233);

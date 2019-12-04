@@ -27,7 +27,17 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/fontawesome.js'],
+  plugins: [
+    '~/plugins/fontawesome.js',
+    {
+      src: '~/plugins/ScrollReveal.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/animejs.js',
+      ssr: false
+    }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -42,7 +52,15 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // Docs: https://www.npmjs.com/package/vue-scrollto
+    [
+      'vue-scrollto/nuxt',
+      {
+        duration: 1000,
+        easing: 'ease'
+      }
+    ]
   ],
   /*
    ** Axios module configuration

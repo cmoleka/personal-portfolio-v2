@@ -2,18 +2,19 @@
   <div class="container-fluid">
     <navigation />
     <nuxt />
-    <social-networks />
+    <animated-elements />
   </div>
 </template>
 
 /* Script */
 <script>
 import Navigation from '~/components/Navigation.vue'
-import SocialNetworks from '~/components/SocialNetworks.vue'
+import animatedElements from '~/components/animatedElements.vue'
+
 export default {
   components: {
     Navigation,
-    SocialNetworks
+    animatedElements
   }
 }
 </script>

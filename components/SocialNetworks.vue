@@ -1,27 +1,6 @@
 <template>
   <div class="SocialNetworks__Container mb-2">
-    <ul class="SocialNetworks__Social">
-      <li class="SocialNetworks__ListItem">
-        <a href="" class="SocialNetworks__Link"
-          ><font-awesome-icon :icon="['fab', 'github']"
-        /></a>
-      </li>
-      <li class="SocialNetworks__ListItem">
-        <a href="" class="SocialNetworks__Link"
-          ><font-awesome-icon :icon="['fab', 'twitter']"
-        /></a>
-      </li>
-      <li class="SocialNetworks__ListItem">
-        <a href="" class="SocialNetworks__Link">
-          <font-awesome-icon :icon="['fab', 'instagram']"
-        /></a>
-      </li>
-      <li class="SocialNetworks__ListItem">
-        <a href="" class="SocialNetworks__Link"
-          ><font-awesome-icon :icon="['fab', 'linkedin']"
-        /></a>
-      </li>
-    </ul>
+    <slot />
   </div>
 </template>
 
