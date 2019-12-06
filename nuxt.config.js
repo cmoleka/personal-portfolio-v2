@@ -1,3 +1,5 @@
+import FMMode from 'frontmatter-markdown-loader/mode'
+
 export default {
   mode: 'universal',
   /*
@@ -23,7 +25,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    '@/static/css/responsive.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -74,6 +79,15 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      // add frontmatter-markdown-loader
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          mode: [FMMode.VUE_COMPONENT]
+        }
+      })
+    }
   }
 }

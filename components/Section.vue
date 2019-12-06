@@ -1,5 +1,5 @@
 <template>
-  <div class="section-component pt-5 mx-auto">
+  <div class="section__component">
     <div class="section__container">
       <div class="sectionTitle pb-4">
         <div class="sectionTitle__container">
@@ -24,8 +24,10 @@ export default {
 .section__color--lead {
   color: rgba(255, 255, 255, 0.5);
 }
-.section-component {
+.section__component {
   width: 80%;
+  margin: 0 auto;
+  padding-top: 3rem;
 }
 hr {
   border-top: 1px solid rgba(255, 255, 255, 0.233);
@@ -73,6 +75,9 @@ hr {
 }
 .section__content__left {
   max-width: 55%;
+}
+.section__content__right {
+  margin-left: 3rem;
 }
 
 .section__content__imageOverlay {

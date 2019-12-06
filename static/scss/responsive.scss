@@ -1,0 +1,632 @@
+// Variables
+$desktop: 1024px;
+$tablet: 768px;
+$mobile: 480px;
+
+/* Mixins */
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+
+/// responsive styling start
+body {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@include tablet {
+  .container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  // Hero
+  .headline-component {
+    padding-top: 5rem !important;
+
+    .headline__container {
+      padding-top: 5rem !important;
+      padding-bottom: 8rem !important;
+
+      .intro__greeting {
+        font-size: 2.4rem !important;
+      }
+
+      .intro__paragraphe {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  // About me
+  .section__content {
+    flex-direction: column;
+
+    .section__content__left {
+      order: 1;
+      max-width: 100% !important;
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      .section__list {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          margin-left: 0.25rem;
+          margin-bottom: 1rem;
+          font-size: 1.25rem;
+
+          &:before {
+            margin-left: 1rem !important;
+          }
+        }
+      }
+    }
+
+    .section__content__right {
+      order: 0;
+      margin-left: auto !important;
+      margin-right: auto;
+      margin-bottom: 2rem;
+    }
+  }
+
+  // Jobs
+  .work__container {
+    flex-direction: column;
+
+    .work__tabs--container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+
+      .work__company_name {
+        font-size: 1.25em !important;
+      }
+    }
+
+    .work__details {
+      margin-left: 0 !important;
+
+      .work__title {
+        .work__position {
+          font-size: 1.5rem !important;
+        }
+
+        .work__company_name {
+          font-size: 1.5rem !important;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem !important;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      .section__list {
+        li {
+          font-size: 1.25rem;
+
+          &:before {
+            margin-left: -2em !important;
+          }
+        }
+      }
+    }
+  }
+
+  /* Projects */
+
+  // Featured
+  .Projects__Featured__Container {
+    flex-direction: column;
+
+    .Projects__Featured__Image {
+      margin: 0 auto;
+    }
+
+    .Projects_Featured_Details {
+      margin-top: 2rem;
+      margin-left: auto !important;
+      margin-right: auto;
+
+      h1,
+      h2 {
+        text-align: left !important;
+      }
+
+      h1,
+      p {
+        font-size: 1.25rem;
+      }
+
+      .Featured__Tech--List {
+        li {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  // Single
+  .Projects__Single__Container {
+    flex-direction: column;
+
+    .Projects_Single_Details {
+      width: 100% !important;
+      margin-right: 0 !important;
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      ul {
+        li {
+          font-size: 1.25rem;
+        }
+      }
+
+      .Single__Links {
+        justify-content: flex-end !important;
+      }
+    }
+  }
+
+  /* Social Media */
+  .SocialNetworks__Container {
+    .SocialNetworks__Social {
+      .SocialNetworks__ListItem {
+        .SocialNetworks__Link {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+
+}
+
+@include desktop {
+  .container {
+    max-width: 100% !important;
+  }
+
+  // Hero
+  .headline-component {
+    padding-top: 5rem !important;
+
+    .headline__container {
+      padding-top: 5rem !important;
+      padding-bottom: 8rem !important;
+
+      .intro__greeting {
+        font-size: 2rem !important;
+      }
+
+      .intro__paragraphe {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  // About me
+  .section__content {
+    flex-direction: column;
+
+    .section__content__left {
+      order: 1;
+      max-width: 100% !important;
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      .section__list {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          margin-left: 0.25rem;
+          margin-bottom: 1rem;
+          font-size: 1.25rem;
+
+          &:before {
+            margin-left: 1rem !important;
+          }
+        }
+      }
+    }
+
+    .section__content__right {
+      order: 0;
+      margin-left: auto !important;
+      margin-right: auto;
+      margin-bottom: 2rem;
+    }
+  }
+
+  // Jobs
+  .work__container {
+    flex-direction: column;
+
+    .work__tabs--container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+
+      .work__company_name {
+        font-size: 1.25em !important;
+      }
+    }
+
+    .work__details {
+      margin-left: 0 !important;
+
+      .work__title {
+        .work__position {
+          font-size: 1.5rem !important;
+        }
+
+        .work__company_name {
+          font-size: 1.5rem !important;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem !important;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      .section__list {
+        li {
+          font-size: 1.25rem;
+
+          &:before {
+            margin-left: -2em !important;
+          }
+        }
+      }
+    }
+  }
+
+  /* Projects */
+
+  // Featured
+  .Projects__Featured__Container {
+    flex-direction: column;
+
+    .Projects__Featured__Image {
+      margin: 0 auto;
+    }
+
+    .Projects_Featured_Details {
+      margin-top: 2rem;
+      margin-left: auto !important;
+      margin-right: auto;
+
+      h1,
+      h2 {
+        text-align: left !important;
+      }
+
+      h1,
+      p {
+        font-size: 1.25rem;
+      }
+
+      .Featured__Tech--List {
+        li {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  // Single
+  .Projects__Single__Container {
+    flex-direction: column;
+
+    .Projects_Single_Details {
+      width: 100% !important;
+      margin-right: 0 !important;
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      ul {
+        li {
+          font-size: 1.25rem;
+        }
+      }
+
+      .Single__Links {
+        justify-content: flex-end !important;
+      }
+    }
+  }
+
+  /* Social Media */
+  .SocialNetworks__Container {
+    .SocialNetworks__Social {
+      .SocialNetworks__ListItem {
+        .SocialNetworks__Link {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+
+}
+
+@include mobile {
+  .container {
+    max-width: 100% !important;
+    width: 100%;
+  }
+
+  .container-fluid {
+    min-width: 375px;
+    width: 100% !important;
+  }
+
+  //Section
+  .sectionTitle__container {
+    h1::after {
+      width: 17rem !important;
+    }
+  }
+
+  // Hero
+  .headline-component {
+    padding-top: 1rem !important;
+
+    .headline__container {
+      padding-top: 5rem !important;
+      padding-bottom: 8rem !important;
+
+      .intro__greeting {
+        font-size: 1.2rem !important;
+      }
+
+      .intro__name {
+        font-size: 2.5rem !important;
+      }
+
+      .intro__work {
+        font-size: 2rem !important;
+      }
+
+      .intro__paragraphe {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  // About me
+
+  .section__content {
+    flex-direction: column;
+
+    .section__content__left {
+      order: 1;
+      max-width: 100% !important;
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      .section__list {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          margin-left: -3rem;
+          margin-bottom: 1rem;
+          font-size: 1.25rem;
+
+          &:before {
+            margin-left: 1rem !important;
+          }
+        }
+      }
+    }
+
+    .section__content__right {
+      order: 0;
+      margin-left: auto !important;
+      margin-right: auto;
+      margin-bottom: 2rem;
+
+      .section__content__imageOverlay {
+        .section__profile__photo {
+          max-width: 10rem;
+        }
+      }
+    }
+  }
+
+  // Jobs
+  .work__container {
+    flex-direction: column;
+
+    .work__tabs--container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+
+      .work__company_name {
+        font-size: 1.25em !important;
+      }
+    }
+
+    .work__details {
+      margin-left: 0 !important;
+
+      .work__title {
+        flex-direction: column;
+
+        .work__position {
+          order: 1;
+          font-size: 1.5rem !important;
+        }
+
+        .work__company_name {
+          order: 0;
+          font-size: 1.25rem !important;
+
+          &:before {
+            margin-left: 0;
+          }
+
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem !important;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      .section__list {
+        display: none;
+
+        li {
+          font-size: 1.15rem;
+
+          &:before {
+            margin-left: -2em !important;
+          }
+        }
+      }
+    }
+  }
+
+  /* Projects */
+
+  // Featured
+  .Projects__Featured__Container {
+    flex-direction: column;
+    overflow: unset !important;
+
+    .Projects__Featured__Image {
+      margin: 0 auto;
+      width: 100% !important;
+      height: 50% !important;
+    }
+
+    .Projects_Featured_Details {
+      margin-top: 2rem;
+      margin-left: auto !important;
+      margin-right: auto;
+
+      h1,
+      h2 {
+        font-size: 1.5rem;
+        text-align: left !important;
+      }
+
+      h1,
+      p {
+        font-size: 1.12rem;
+      }
+
+      .Featured__Tech--List {
+        justify-content: flex-start;
+        padding: 0;
+
+        li {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  // Single
+  .Projects__Single__Container {
+    flex-direction: column;
+
+    .Projects_Single_Details {
+      width: 100% !important;
+      margin-right: 0 !important;
+
+      h1 {
+        font-size: 1.12rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 1.12rem;
+      }
+
+      ul {
+        li {
+          font-size: 1.1rem;
+        }
+      }
+
+      .Single__Links {
+        justify-content: flex-end !important;
+      }
+    }
+  }
+
+  /* Contact */
+  .Contact__Section {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .Contact__title {
+    font-size: 2.5rem !important;
+  }
+
+  /* Social Media */
+  .SocialNetworks__Container {
+    .SocialNetworks__Social {
+      .SocialNetworks__ListItem {
+        .SocialNetworks__Link {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+
+}

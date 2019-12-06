@@ -20,6 +20,7 @@ export default {}
   flex-wrap: wrap;
   width: 100%;
   padding-top: 2rem;
+  margin-top: 1.5rem;
 }
 .Projects_Single_Details {
   background-color: #18212b;

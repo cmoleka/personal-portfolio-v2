@@ -1,5 +1,5 @@
 <template>
-  <div class="headline-component pt-5 mx-auto">
+  <div class="headline-component">
     <div class="headline__container">
       <slot name="intro__greeting"></slot>
       <slot name="intro__name"></slot>
@@ -17,6 +17,8 @@ export default {}
 <style lang="css" scoped>
 .headline-component {
   width: 80%;
+  padding-top: 3rem;
+  margin: 0 auto;
 }
 .headline__container {
   width: 100%;
