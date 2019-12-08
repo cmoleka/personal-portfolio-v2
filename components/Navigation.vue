@@ -9,72 +9,59 @@
         origin: 'left'
       }"
     />
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="navbarSupportedContent" class="collapse navbar-collapse">
-      <div v-scroll-reveal="{ delay: 1500 }" class="Navigation__container">
-        <a
-          v-scroll-to="'#aboutme'"
-          v-scroll-reveal="{
-            delay: 1800,
-            duration: 800,
-            reset: false,
-            interval: 600,
-            origin: 'top'
-          }"
-          href="#"
-          class="nav-link text-white active Navigation__Link"
-          >About</a
-        >
-        <a
-          v-scroll-to="'#workexperience'"
-          v-scroll-reveal="{
-            delay: 2000,
-            duration: 800,
-            reset: false,
-            interval: 600,
-            origin: 'top'
-          }"
-          href="#"
-          class="nav-link text-white active Navigation__Link"
-          >Experience</a
-        >
-        <a
-          v-scroll-to="'#projects'"
-          v-scroll-reveal="{
-            delay: 2100,
-            duration: 800,
-            reset: false,
-            interval: 600,
-            origin: 'top'
-          }"
-          href="#"
-          class="nav-link text-white active Navigation__Link"
-          >Work</a
-        >
-        <a
-          v-scroll-to="'#contactme'"
-          v-scroll-reveal="{
-            delay: 2200,
-            duration: 800,
-            reset: false,
-            interval: 600,
-            origin: 'top'
-          }"
-          href="#"
-          class="nav-link text-white active Navigation__Link"
-          >Contact</a
-        >
-      </div>
+    <div v-scroll-reveal="{ delay: 1500 }" class="Navigation__container">
+      <a
+        v-scroll-to="'#aboutme'"
+        v-scroll-reveal="{
+          delay: 1800,
+          duration: 800,
+          reset: false,
+          interval: 600,
+          origin: 'top'
+        }"
+        href="#"
+        class="nav-link text-white Navigation__Link"
+        >About</a
+      >
+      <a
+        v-scroll-to="'#workexperience'"
+        v-scroll-reveal="{
+          delay: 2000,
+          duration: 800,
+          reset: false,
+          interval: 600,
+          origin: 'top'
+        }"
+        href="#"
+        class="nav-link text-white Navigation__Link"
+        >Experience</a
+      >
+      <a
+        v-scroll-to="'#projects'"
+        v-scroll-reveal="{
+          delay: 2100,
+          duration: 800,
+          reset: false,
+          interval: 600,
+          origin: 'top'
+        }"
+        href="#"
+        class="nav-link text-white Navigation__Link"
+        >Work</a
+      >
+      <a
+        v-scroll-to="'#contactme'"
+        v-scroll-reveal="{
+          delay: 2200,
+          duration: 800,
+          reset: false,
+          interval: 600,
+          origin: 'top'
+        }"
+        href="#"
+        class="nav-link text-white Navigation__Link"
+        >Contact</a
+      >
     </div>
   </nav>
 </template>
