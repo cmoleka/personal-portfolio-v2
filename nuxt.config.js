@@ -65,8 +65,25 @@ export default {
         duration: 1000,
         easing: 'ease'
       }
-    ]
+    ],
+    // Docs: https://nuxt-community.github.io/nuxt-i18n
+    'nuxt-i18n'
   ],
+  /*
+   ** il8n module configuration
+   ** See https://nuxt-community.github.io/nuxt-i18n/basic-usage.html#nuxt-link
+   */
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: require('./locales/en.json'),
+        fr: require('./locales/fr.json')
+      }
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

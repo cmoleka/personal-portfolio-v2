@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "about": "à propos",
+    "experience": "experience",
+    "work": "projets",
+    "contact": "contact"
+  },
+  "sections": {
+    "about": "à propos",
+    "experience": "Experiences",
+    "projects": {
+      "title": "projets",
+      "featured": "Projet en vedette",
+      "single": "projet"
+    },
+    "contactMe": "Me Contacter"
+  }
+}

@@ -7,4 +7,5 @@ external: 'http://lol.com'
 tech:
   - Python
 featured: 'false'
+lang: en
 ---

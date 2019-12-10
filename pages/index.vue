@@ -58,8 +58,11 @@
       id="aboutme"
       v-scroll-reveal="{ delay: 500, duration: 1000 }"
     >
-      <h1 slot="section__title" class="font-weight-bold text-white h4">
-        About Me
+      <h1
+        slot="section__title"
+        class="font-weight-bold text-white h4 text-capitalize"
+      >
+        {{ $t('sections.about') }}
       </h1>
       <div slot="section__content" class="section__content">
         <div class="section__content__left">
@@ -84,10 +87,14 @@
     </section-component>
     <section-component
       id="workexperience"
+      v-if="allJobs.length >= 1"
       v-scroll-reveal="{ delay: 500, duration: 1000, origin: 'left' }"
     >
-      <h1 slot="section__title" class="font-weight-bold text-white h4">
-        Experience
+      <h1
+        slot="section__title"
+        class="font-weight-bold text-white h4 text-capitalize"
+      >
+        {{ $t('sections.experience') }}
       </h1>
       <div slot="section__content">
         <SectionWorkExperience>
@@ -139,8 +146,11 @@
       id="projects"
       v-scroll-reveal="{ delay: 500, duration: 1000 }"
     >
-      <h1 slot="section__title" class="font-weight-bold text-white h4">
-        Projects
+      <h1
+        slot="section__title"
+        class="font-weight-bold text-white h4 text-capitalize"
+      >
+        {{ $t('sections.projects.title') }}
       </h1>
       <div slot="section__content">
         <projects-featured
@@ -151,7 +161,9 @@
             :src="projectsFeatured.attributes.image"
           />
 
-          <h1 slot="Featured__Status" class="text-right">Featured Project</h1>
+          <h1 slot="Featured__Status" class="text-right text-capitalize">
+            {{ $t('sections.projects.featured') }}
+          </h1>
           <h2 slot="Featured__Title" class="text-right">
             {{ projectsFeatured.attributes.title }}
           </h2>
@@ -195,7 +207,9 @@
             }"
             class="Projects_Single_Details"
           >
-            <h1 slot="Single__Title">Project</h1>
+            <h1 slot="Single__Title" class="text-capitalize">
+              {{ $t('sections.projects.single') }}
+            </h1>
             <h2 slot="Single__Description">{{ project.attributes.title }}</h2>
             <p slot="Single__Description" class="text-white-50">
               {{ project.attributes.description }}
@@ -229,8 +243,11 @@
       id="contactme"
       v-scroll-reveal="{ delay: 500, duration: 1000 }"
     >
-      <h1 slot="section__title" class="font-weight-bold text-white h4">
-        Contact me
+      <h1
+        slot="section__title"
+        class="font-weight-bold text-white h4 text-capitalize"
+      >
+        {{ $t('sections.contactMe') }}
       </h1>
       <div slot="section__content">
         <headline class="Contact__Section">
@@ -293,6 +310,7 @@ import ProjectsSingle from '~/components/SectionProjectsSingle.vue'
 import SocialNetworks from '~/components/SocialNetworks.vue'
 // content imports //
 import hero from '~/content/hero/index.md'
+// import herofr from '~/content/hero/indexfr.md'
 import aboutme from '~/content/about/index.md'
 import contactme from '~/content/contact/index.md'
 // content imports end //

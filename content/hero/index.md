@@ -1,9 +1,7 @@
 ---
-title: Hi my name is
+title: Welcome, my name is
 name: Carlo Moleka
-subtitle: Web Developer
-paragraph: 'I am a self-taught Web developer, learning through research and development. My greatest asset is curiosity. It defines and motivates me to expand my knowledge and skills to greater heights.'
-lang:
-  - en-US
-  - en-CA
+subtitle: Web developer
+paragraph: 'I am a self-taught developer based in Montreal Quebec, specialized in Web development.'
+lang: en
 ---

@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "about": "about",
+    "experience": "experience",
+    "work": "projects",
+    "contact": "contact"
+  },
+  "sections": {
+    "about": "About Me",
+    "experience": "experiences",
+    "projects": {
+      "title": "projects",
+      "featured": "Featured Project",
+      "single": "project"
+    },
+    "contactMe": "contact me"
+  }
+}

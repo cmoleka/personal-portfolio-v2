@@ -29,4 +29,12 @@ export default {}
   color: #649edd;
   font-size: 1.2em;
 }
+.intro__work::before {
+  content: '{';
+  color: #4188d3;
+}
+.intro__work::after {
+  content: '}';
+  color: #4188d3;
+}
 </style>

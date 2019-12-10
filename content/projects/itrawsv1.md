@@ -9,4 +9,5 @@ tech:
   - Contentful
   - Bootstrap
 featured: 'true'
+lang: en
 ---

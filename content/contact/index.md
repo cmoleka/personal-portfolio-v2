@@ -7,4 +7,5 @@ github: 'https://github.com/cmoleka'
 twitter: 'https://twitter.com/CarloMoleka'
 instagram: 'https://www.instagram.com/cmolex'
 linkedin: 'https://www.linkedin.com/in/carlomoleka/'
+lang: en
 ---

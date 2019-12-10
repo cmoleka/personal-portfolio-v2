@@ -21,7 +21,7 @@
         }"
         href="#"
         class="nav-link text-white Navigation__Link"
-        >About</a
+        >{{ $t('navigation.about') }}</a
       >
       <a
         v-scroll-to="'#workexperience'"
@@ -34,7 +34,7 @@
         }"
         href="#"
         class="nav-link text-white Navigation__Link"
-        >Experience</a
+        >{{ $t('navigation.experience') }}</a
       >
       <a
         v-scroll-to="'#projects'"
@@ -47,7 +47,7 @@
         }"
         href="#"
         class="nav-link text-white Navigation__Link"
-        >Work</a
+        >{{ $t('navigation.work') }}</a
       >
       <a
         v-scroll-to="'#contactme'"
@@ -60,8 +60,26 @@
         }"
         href="#"
         class="nav-link text-white Navigation__Link"
-        >Contact</a
+        >{{ $t('navigation.contact') }}</a
       >
+      <b-dropdown
+        id="dropdown-1"
+        v-scroll-reveal="{
+          delay: 2400,
+          duration: 800,
+          reset: false,
+          interval: 600,
+          origin: 'top'
+        }"
+        right
+        class="Navigation__btn"
+      >
+        <template v-slot:button-content>
+          &#127760;
+        </template>
+        <b-dropdown-item :to="switchLocalePath('en')">English</b-dropdown-item>
+        <b-dropdown-item :to="switchLocalePath('fr')">Français</b-dropdown-item>
+      </b-dropdown>
     </div>
   </nav>
 </template>
@@ -87,6 +105,7 @@ export default {
 .Navigation__Link {
   counter-increment: contentIndex;
   display: inline-block;
+  text-transform: capitalize;
 }
 .Navigation__Link::before {
   content: counter(contentIndex) '.';
@@ -95,5 +114,17 @@ export default {
   font-size: 1em;
   color: #649edd;
   font-family: 'Courier New', Courier, monospace;
+}
+.Navigation__btn > .btn-secondary {
+  background-color: transparent;
+  border-color: #649edd;
+}
+.Navigation__btn > .btn-secondary.dropdown-toggle {
+  background-color: rgba(100, 158, 221, 0.37);
+  border-color: transparent;
+}
+.Navigation__btn > .btn-secondary:hover {
+  background-color: rgba(100, 158, 221, 0.37);
+  border-color: transparent;
 }
 </style>
