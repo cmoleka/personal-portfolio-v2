@@ -1,15 +1,8 @@
 // Variables
-$desktop: 1024px;
 $tablet: 768px;
 $mobile: 480px;
 
 /* Mixins */
-@mixin desktop {
-  @media (max-width: #{$desktop}) {
-    @content;
-  }
-}
-
 @mixin tablet {
   @media (max-width: #{$tablet}) {
     @content;
@@ -23,7 +16,7 @@ $mobile: 480px;
 }
 
 
-/// responsive styling start
+/// responsive styling begining
 body {
   width: 100% !important;
   height: 100% !important;
@@ -37,205 +30,43 @@ body {
 
 @include tablet {
   .container {
-    max-width: 100% !important;
+    width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
 
-  // Hero
-  .headline-component {
-    padding-top: 5rem !important;
-
-    .headline__container {
-      padding-top: 5rem !important;
-      padding-bottom: 8rem !important;
-
-      .intro__greeting {
-        font-size: 2.4rem !important;
-      }
-
-      .intro__paragraphe {
-        font-size: 2rem;
-      }
-    }
-  }
-
-  // About me
-  .section__content {
-    flex-direction: column;
-
-    .section__content__left {
-      order: 1;
-      max-width: 100% !important;
-
-      p {
-        font-size: 1.5rem;
-      }
-
-      .section__list {
-        display: flex;
-        flex-wrap: wrap;
-
-        li {
-          margin-left: 0.25rem;
-          margin-bottom: 1rem;
-          font-size: 1.25rem;
-
-          &:before {
-            margin-left: 1rem !important;
-          }
-        }
-      }
-    }
-
-    .section__content__right {
-      order: 0;
-      margin-left: auto !important;
-      margin-right: auto;
-      margin-bottom: 2rem;
-    }
-  }
-
-  // Jobs
-  .work__container {
-    flex-direction: column;
-
-    .work__tabs--container {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-
-      .work__company_name {
-        font-size: 1.25em !important;
-      }
-    }
-
-    .work__details {
-      margin-left: 0 !important;
-
-      .work__title {
-        .work__position {
-          font-size: 1.5rem !important;
-        }
-
-        .work__company_name {
-          font-size: 1.5rem !important;
-        }
-      }
-
-      h3 {
-        font-size: 1.5rem !important;
-      }
-
-      p {
-        font-size: 1.25rem;
-      }
-
-      .section__list {
-        li {
-          font-size: 1.25rem;
-
-          &:before {
-            margin-left: -2em !important;
-          }
-        }
-      }
-    }
-  }
-
-  /* Projects */
-
-  // Featured
-  .Projects__Featured__Container {
-    flex-direction: column;
-
-    .Projects__Featured__Image {
-      margin: 0 auto;
-    }
-
-    .Projects_Featured_Details {
-      margin-top: 2rem;
-      margin-left: auto !important;
-      margin-right: auto;
-
-      h1,
-      h2 {
-        text-align: left !important;
-      }
-
-      h1,
-      p {
-        font-size: 1.25rem;
-      }
-
-      .Featured__Tech--List {
-        li {
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-
-  // Single
-  .Projects__Single__Container {
-    flex-direction: column;
-
-    .Projects_Single_Details {
-      width: 100% !important;
-      margin-right: 0 !important;
-
-      h1 {
-        font-size: 1.25rem;
-      }
-
-      p {
-        font-size: 1.25rem;
-      }
-
-      ul {
-        li {
-          font-size: 1.25rem;
-        }
-      }
-
-      .Single__Links {
-        justify-content: flex-end !important;
-      }
-    }
-  }
-
-  /* Social Media */
-  .SocialNetworks__Container {
-    .SocialNetworks__Social {
-      .SocialNetworks__ListItem {
-        .SocialNetworks__Link {
-          font-size: 2em;
-        }
-      }
-    }
-  }
-
-}
-
-@include desktop {
-  .container {
-    max-width: 100% !important;
-  }
+  // .navbar {
+  //   padding: 0.5rem 0 !important;
+  //   max-width: 600px !important;
+  //   margin: 0 !important;
+  //   overflow: hidden;
+  // }
 
   // Hero
   .headline-component {
-    padding-top: 5rem !important;
 
     .headline__container {
-      padding-top: 5rem !important;
-      padding-bottom: 8rem !important;
 
       .intro__greeting {
         font-size: 2rem !important;
       }
 
+      .intro__name {
+        font-size: 4rem !important;
+      }
+
+      .intro__work {
+        font-size: 3rem !important;
+      }
+
       .intro__paragraphe {
-        font-size: 2rem;
+        font-size: 2rem !important;
+      }
+
+      .Button__Container {
+        .Button__Style {
+          font-size: 1.5rem !important;
+        }
       }
     }
   }
@@ -250,11 +81,14 @@ body {
 
       p {
         font-size: 1.5rem;
+        text-align: justify;
+        word-break: break-all;
       }
 
       .section__list {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        padding-left: 0 !important;
 
         li {
           margin-left: 0.25rem;
@@ -397,8 +231,10 @@ body {
 
 }
 
+/* Mobile styling */
 @include mobile {
   .container {
+
     max-width: 100% !important;
     width: 100%;
   }
@@ -417,27 +253,37 @@ body {
 
   // Hero
   .headline-component {
-    padding-top: 1rem !important;
 
     .headline__container {
-      padding-top: 5rem !important;
-      padding-bottom: 8rem !important;
+      margin-top: 4rem !important;
+      margin-bottom: 5rem !important;
 
       .intro__greeting {
-        font-size: 1.2rem !important;
+        font-size: 1rem !important;
       }
 
       .intro__name {
-        font-size: 2.5rem !important;
-      }
-
-      .intro__work {
         font-size: 2rem !important;
       }
 
-      .intro__paragraphe {
-        font-size: 1.5rem;
+      .intro__work {
+        font-size: 1.3rem !important;
       }
+
+      .intro__paragraphe {
+        font-size: 1.2rem !important;
+        text-align: justify;
+        word-break: break-all;
+      }
+
+      .Button__Container {
+        margin-top: 2rem !important;
+
+        .Button__Style {
+          font-size: 1.2rem !important;
+        }
+      }
+
     }
   }
 
@@ -457,6 +303,7 @@ body {
       .section__list {
         display: flex;
         flex-direction: column;
+        padding-left: 2rem !important;
 
         li {
           margin-left: -3rem;
@@ -636,3 +483,89 @@ body {
   }
 
 }
+
+/* Desktop styling - default */
+
+// Headline
+.headline-component {
+  width: 80%;
+  margin: 0 auto;
+
+  .headline__container {
+    width: 100%;
+    margin: 15rem 0 18rem 0;
+
+    .intro__greeting {
+      color: #649edd;
+      font-size: 1.5rem;
+    }
+
+    .intro__name {
+      font-size: 2.5rem;
+    }
+
+    .intro__work {
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.2;
+      font-size: 4.5rem;
+    }
+
+    .intro__work::before {
+      content: '{';
+      color: #4188d3;
+    }
+
+    .intro__work::after {
+      content: '}';
+      color: #4188d3;
+    }
+
+    .intro__paragraphe {
+      font-size: 1.5rem;
+    }
+
+    .Button__Container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8rem;
+
+      a {
+        text-decoration: none;
+        color: #ffffff;
+      }
+
+      .Button__Style {
+        background: transparent;
+        border: 0.1em solid #649edd;
+        border-radius: 0.5em;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+          border: 0.1em solid #ffffff;
+          transition: 0.25s;
+          text-decoration: none;
+          color: #649edd;
+        }
+      }
+    }
+  }
+}
+
+// About me
+
+
+// Jobs
+
+
+/* Projects */
+
+// Featured
+
+
+// Single
+
+
+/* Social Media */

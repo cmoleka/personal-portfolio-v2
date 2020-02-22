@@ -74,7 +74,16 @@ export default {
    ** See https://nuxt-community.github.io/nuxt-i18n/basic-usage.html#nuxt-link
    */
   i18n: {
-    locales: ['en', 'fr'],
+    locales: [
+      {
+        code: 'en',
+        name: 'English'
+      },
+      {
+        code: 'fr',
+        name: 'Français'
+      }
+    ],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',
@@ -106,5 +115,9 @@ export default {
         }
       })
     }
+  },
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0' // default: localhost
   }
 }

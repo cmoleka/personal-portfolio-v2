@@ -12,7 +12,7 @@
         }"
         class="intro__greeting"
       >
-        {{ data.intro.greeting }}
+        {{ hero.attributes.title }}
       </h1>
       <h2
         slot="intro__name"
@@ -25,7 +25,7 @@
         }"
         class="text-white display-4 font-weight-bold text-capitalize intro__name"
       >
-        {{ data.intro.name }}
+        {{ hero.attributes.name }}
       </h2>
       <h3
         slot="intro__work"
@@ -36,9 +36,9 @@
           interval: 600,
           origin: 'bottom'
         }"
-        class="text-white display-3 font-weight-bold intro__work"
+        class="intro__work"
       >
-        {{ data.intro.occupation }}
+        {{ hero.attributes.subtitle }}
       </h3>
       <p
         slot="intro__paragraphe"
@@ -51,8 +51,26 @@
         }"
         class="text-white-50 lead intro__paragraphe"
       >
-        {{ data.intro.paragraph }}
+        {{ hero.attributes.paragraph }}
       </p>
+      <button-component
+        v-scroll-reveal="{
+          delay: 2600,
+          duration: 800,
+          reset: false,
+          interval: 600,
+          origin: 'bottom'
+        }"
+      >
+        <a slot="Button__Text" v-scroll-to="'#aboutme'" href="#">
+          <p
+            class="py-2 px-4 mb-0 Button__Style left-align"
+            style="text-transform: capitalize;"
+          >
+            {{ $t('navigation.healineCallToAction') }}
+          </p>
+        </a>
+      </button-component>
     </headline>
     <section-component
       id="aboutme"
@@ -87,7 +105,7 @@
     </section-component>
     <section-component
       id="workexperience"
-      v-if="allJobs.length >= 1"
+      v-if="SiteSettings.isExperienceActive && allJobs.length >= 1"
       v-scroll-reveal="{ delay: 500, duration: 1000, origin: 'left' }"
     >
       <h1
@@ -301,6 +319,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Headline from '~/components/Headline.vue'
 import SectionComponent from '~/components/Section.vue'
 import SectionWorkExperience from '~/components/SectionWorkExperience'
@@ -309,7 +328,8 @@ import ProjectsFeatured from '~/components/SectionProjectsFeatured.vue'
 import ProjectsSingle from '~/components/SectionProjectsSingle.vue'
 import SocialNetworks from '~/components/SocialNetworks.vue'
 // content imports //
-import hero from '~/content/hero/index.md'
+// import hero from '~/content/hero/index.md'
+// import herofr from '~/content/hero/indexfr.md'
 // import herofr from '~/content/hero/indexfr.md'
 import aboutme from '~/content/about/index.md'
 import contactme from '~/content/contact/index.md'
@@ -329,12 +349,6 @@ export default {
     return {
       activeWork: 'Itraws',
       data: {
-        intro: {
-          greeting: hero.attributes.title,
-          name: hero.attributes.name,
-          occupation: hero.attributes.subtitle,
-          paragraph: hero.attributes.paragraph
-        },
         about: {
           image: aboutme.attributes.image,
           paragraph: aboutme.attributes.paragraph,
@@ -362,6 +376,11 @@ export default {
   },
   computed: {
     projectsFeatured() {
+      /**
+       * Returns an array containing all featured projects.
+       * @returns {array} - All featured posts
+       */
+      // eslint-disable-next-line no-console
       const featured = this.allProjects.filter(
         (feature) => feature.attributes.featured === 'true'
       )
@@ -383,8 +402,45 @@ export default {
       // Find all markdown files within the projects folder
       const projects = require.context('@/content/projects', false, /.*\.(md)/)
       // Return an array of Ojects containing the projects
-      return projects.keys().map((x) => projects(x))
-    }
+      const projectsMap = projects.keys().map((x) => projects(x))
+      const projectsFr = projectsMap.filter(
+        (project) => project.attributes.lang === 'fr'
+      )
+      const projectsEn = projectsMap.filter(
+        (project) => project.attributes.lang === 'en'
+      )
+      const projectMap = new Map()
+      projectMap.set('fr', projectsFr)
+      projectMap.set('en', projectsEn)
+      const projectData = {
+        fr: projectMap.get('fr'),
+        en: projectMap.get('en')
+      }
+      if (this.$i18n.locale !== 'en') {
+        return projectData.fr
+      } else {
+        return projectData.en
+      }
+    },
+    hero() {
+      const heros = require.context('@/content/hero', false, /.*\.(md)/)
+      const herosMap = heros.keys().map((hero) => heros(hero))
+      const heroFr = herosMap.filter((hero) => hero.attributes.lang === 'fr')
+      const heroEn = herosMap.filter((hero) => hero.attributes.lang === 'en')
+      const heroMap = new Map()
+      heroMap.set('fr', heroFr)
+      heroMap.set('en', heroEn)
+      const heroData = {
+        fr: heroMap.get('fr')[0],
+        en: heroMap.get('en')[0]
+      }
+      if (this.$i18n.locale !== 'en') {
+        return heroData.fr
+      } else {
+        return heroData.en
+      }
+    },
+    ...mapState(['SiteSettings'])
   },
   methods: {
     isActive(work) {

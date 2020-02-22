@@ -1,7 +1,8 @@
 ---
 image: 'https://avatars3.githubusercontent.com/u/38387370?s=460&v=4'
 skilltitle: "Here are a few technologies I've been working with recently:"
-paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+paragraph: 'I’m a self-taught Software Engineer based in Montreal, Canada. My current focus resides in Web development, my entry point into code. 
+With an unquenchable curiosity and desire to build problem solving solutions; I find passion in education and self-improvement. As such, I consider myself a ‘forever student’ eager to learn and stay in tune with the latest trends.'
 lang: en
 skills:
   - Javascript (ES6+)

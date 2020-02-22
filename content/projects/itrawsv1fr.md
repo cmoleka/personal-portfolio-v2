@@ -1,14 +1,13 @@
 ---
 title: Itraws V1
 image: 'https://cmoleka.github.io/img/projects/itraws.png'
-description: 'The first iteration of my freelance services website, built with NuxtJS and hosted on Netlify.'
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua.'
 github: ''
 external: 'https://www.itraws.com'
 tech:
   - Nuxt
   - Contentful
   - Bootstrap
-  - SCSS
 featured: 'true'
-lang: en
+lang: fr
 ---

@@ -1,9 +1,10 @@
 {
   "navigation": {
-    "about": "about",
+    "about": "about me",
     "experience": "experience",
     "work": "projects",
-    "contact": "contact"
+    "contact": "contact",
+    "healineCallToAction": "Know more"
   },
   "sections": {
     "about": "About Me",

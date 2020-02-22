@@ -1,7 +1,7 @@
 ---
 title: Welcome, my name is
 name: Carlo Moleka
-subtitle: Web developer
-paragraph: 'I am a self-taught developer based in Montreal Quebec, specialized in Web development.'
-lang: en
+subtitle: I love building things
+paragraph: 'I am a software engineer based in Montreal Quebec, specialized in Web development.'
+lang: 'en'
 ---

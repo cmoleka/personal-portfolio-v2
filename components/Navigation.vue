@@ -24,6 +24,7 @@
         >{{ $t('navigation.about') }}</a
       >
       <a
+        v-if="SiteSettings.isExperienceActive"
         v-scroll-to="'#workexperience'"
         v-scroll-reveal="{
           delay: 2000,
@@ -62,8 +63,10 @@
         class="nav-link text-white Navigation__Link"
         >{{ $t('navigation.contact') }}</a
       >
-      <b-dropdown
-        id="dropdown-1"
+      <nuxt-link
+        v-for="locale in availableLocales"
+        :key="locale.code"
+        :to="switchLocalePath(locale.code)"
         v-scroll-reveal="{
           delay: 2400,
           duration: 800,
@@ -71,24 +74,25 @@
           interval: 600,
           origin: 'top'
         }"
-        right
-        class="Navigation__btn"
+        class="nav-link text-white Navigation__Link"
+        >{{ locale.name }}</nuxt-link
       >
-        <template v-slot:button-content>
-          &#127760;
-        </template>
-        <b-dropdown-item :to="switchLocalePath('en')">English</b-dropdown-item>
-        <b-dropdown-item :to="switchLocalePath('fr')">Français</b-dropdown-item>
-      </b-dropdown>
     </div>
   </nav>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
+    },
+    ...mapState(['SiteSettings'])
   }
 }
 </script>
