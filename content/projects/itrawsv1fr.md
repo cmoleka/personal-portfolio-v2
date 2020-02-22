@@ -1,7 +1,7 @@
 ---
 title: Itraws V1
 image: 'https://cmoleka.github.io/img/projects/itraws.png'
-description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua.'
+description: 'La première itération de mon site Web de services indépendants, construit avec NuxtJS et hébergé sur Netlify.'
 github: ''
 external: 'https://www.itraws.com'
 tech:

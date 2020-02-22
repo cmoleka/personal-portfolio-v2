@@ -85,20 +85,26 @@
       <div slot="section__content" class="section__content">
         <div class="section__content__left">
           <p class="text-white-50">
-            {{ data.about.paragraph }}
+            {{ aboutMeContent.attributes.paragraph }}
           </p>
           <p class="pt-2 section__color--bluish">
-            {{ data.about.skills.message }}
+            {{ aboutMeContent.attributes.message }}
           </p>
           <ul class="section__list">
-            <li v-for="skill in data.about.skills.skills" class="text-white">
+            <li
+              v-for="skill in aboutMeContent.attributes.skills"
+              class="text-white"
+            >
               {{ skill }}
             </li>
           </ul>
         </div>
         <div class="section__content__right">
           <div class="section__content__imageOverlay">
-            <img :src="data.about.image" class="section__profile__photo" />
+            <img
+              :src="aboutMeContent.attributes.image"
+              class="section__profile__photo"
+            />
           </div>
         </div>
       </div>
@@ -172,39 +178,42 @@
       </h1>
       <div slot="section__content">
         <projects-featured
-          v-if="projectsFeatured.attributes.featured === 'true'"
+          v-if="projectsFeatured.length >= 1"
+          v-for="(featured, index) in projectsFeatured"
+          :key="index"
+          class="mb-4"
         >
           <img
             slot="Projects__Featured_Image"
-            :src="projectsFeatured.attributes.image"
+            :src="featured.attributes.image"
           />
 
           <h1 slot="Featured__Status" class="text-right text-capitalize">
             {{ $t('sections.projects.featured') }}
           </h1>
           <h2 slot="Featured__Title" class="text-right">
-            {{ projectsFeatured.attributes.title }}
+            {{ featured.attributes.title }}
           </h2>
           <p slot="Featured__Description" class="text-white-50">
-            {{ projectsFeatured.attributes.description }}
+            {{ featured.attributes.description }}
           </p>
           <ul slot="Featured__Technologies" class="Featured__Tech--List">
-            <li v-for="tech in projectsFeatured.attributes.tech">
+            <li v-for="tech in featured.attributes.tech">
               {{ tech }}
             </li>
           </ul>
           <ul slot="Featured__Links" class="Featured__Links--List">
-            <li v-if="projectsFeatured.attributes.github">
+            <li v-if="featured.attributes.github">
               <a
-                :href="projectsFeatured.attributes.github"
+                :href="featured.attributes.github"
                 target="_blank"
                 rel="noopener noreferrer"
                 ><font-awesome-icon :icon="['fab', 'github']"
               /></a>
             </li>
-            <li v-if="projectsFeatured.attributes.external">
+            <li v-if="featured.attributes.external">
               <a
-                :href="projectsFeatured.attributes.external"
+                :href="featured.attributes.external"
                 target="_blank"
                 rel="noopener noreferrer"
                 ><font-awesome-icon :icon="['fas', 'external-link-alt']"
@@ -215,7 +224,9 @@
         <projects-single>
           <div
             slot="Projects_Single_Details"
+            v-if="projectsNotFeatured.length >= 1"
             v-for="(project, index) in projectsNotFeatured"
+            :key="index"
             v-scroll-reveal="{
               delay: 800 + parseInt(100 * index),
               duration: 900,
@@ -273,18 +284,18 @@
             slot="intro__name"
             class="text-white text-center display-4 font-weight-bold text-capitalize Contact__title"
           >
-            {{ data.contactMe.title }}
+            {{ contactMe.attributes.title }}
           </h2>
           <p
             slot="intro__paragraphe"
             class="text-white-50 text-center lead Contact__text"
           >
-            {{ data.contactMe.paragraph }}
+            {{ contactMe.attributes.paragraph }}
           </p>
           <button-component>
-            <a slot="Button__Text" :href="data.contactMe.button.url">
+            <a slot="Button__Text" :href="contactMe.attributes.url">
               <p class="py-2 px-4 mb-0 Button__Style mt-2">
-                {{ data.contactMe.button.text }}
+                {{ contactMe.attributes.buttontitle }}
               </p>
             </a>
           </button-component>
@@ -293,25 +304,13 @@
     </section-component>
     <social-networks>
       <ul class="SocialNetworks__Social">
-        <li v-if="data.socialMedia.github" class="SocialNetworks__ListItem">
-          <a :href="data.socialMedia.github" class="SocialNetworks__Link"
-            ><font-awesome-icon :icon="['fab', 'github']"
-          /></a>
-        </li>
-        <li v-if="data.socialMedia.twitter" class="SocialNetworks__ListItem">
-          <a :href="data.socialMedia.twitter" class="SocialNetworks__Link"
-            ><font-awesome-icon :icon="['fab', 'twitter']"
-          /></a>
-        </li>
-        <li v-if="data.socialMedia.instagram" class="SocialNetworks__ListItem">
-          <a :href="data.socialMedia.instagram" class="SocialNetworks__Link">
-            <font-awesome-icon :icon="['fab', 'instagram']"
-          /></a>
-        </li>
-        <li v-if="data.socialMedia.linkedin" class="SocialNetworks__ListItem">
-          <a :href="data.socialMedia.linkedin" class="SocialNetworks__Link"
-            ><font-awesome-icon :icon="['fab', 'linkedin']"
-          /></a>
+        <li
+          v-for="(value, name) in socialNetworks.attributes"
+          class="SocialNetworks__ListItem"
+        >
+          <a :href="value" class="SocialNetworks__Link">
+            <font-awesome-icon :icon="['fab', name]" />
+          </a>
         </li>
       </ul>
     </social-networks>
@@ -327,13 +326,7 @@ import ButtonComponent from '~/components/Button.vue'
 import ProjectsFeatured from '~/components/SectionProjectsFeatured.vue'
 import ProjectsSingle from '~/components/SectionProjectsSingle.vue'
 import SocialNetworks from '~/components/SocialNetworks.vue'
-// content imports //
-// import hero from '~/content/hero/index.md'
-// import herofr from '~/content/hero/indexfr.md'
-// import herofr from '~/content/hero/indexfr.md'
-import aboutme from '~/content/about/index.md'
-import contactme from '~/content/contact/index.md'
-// content imports end //
+import socials from '~/content/social/index.md'
 
 export default {
   components: {
@@ -348,30 +341,7 @@ export default {
   data() {
     return {
       activeWork: 'Itraws',
-      data: {
-        about: {
-          image: aboutme.attributes.image,
-          paragraph: aboutme.attributes.paragraph,
-          skills: {
-            message: aboutme.attributes.skilltitle,
-            skills: aboutme.attributes.skills
-          }
-        },
-        contactMe: {
-          title: contactme.attributes.title,
-          paragraph: contactme.attributes.paragraph,
-          button: {
-            text: contactme.attributes.buttontitle,
-            url: contactme.attributes.url
-          }
-        },
-        socialMedia: {
-          github: contactme.attributes.github,
-          twitter: contactme.attributes.twitter,
-          instagram: contactme.attributes.instagram,
-          linkedin: contactme.attributes.linkedin
-        }
-      }
+      data: {}
     }
   },
   computed: {
@@ -384,7 +354,7 @@ export default {
       const featured = this.allProjects.filter(
         (feature) => feature.attributes.featured === 'true'
       )
-      return featured[0]
+      return featured
     },
     projectsNotFeatured() {
       const projects = this.allProjects.filter(
@@ -439,6 +409,53 @@ export default {
       } else {
         return heroData.en
       }
+    },
+    aboutMeContent() {
+      const aboutme = require.context('@/content/about', false, /.*\.(md)/)
+      const aboutmeMap = aboutme.keys().map((about) => aboutme(about))
+      const aboutmeFr = aboutmeMap.filter(
+        (about) => about.attributes.lang === 'fr'
+      )
+      const aboutmeEn = aboutmeMap.filter(
+        (about) => about.attributes.lang === 'en'
+      )
+      const map = new Map()
+      map.set('fr', aboutmeFr)
+      map.set('en', aboutmeEn)
+      const aboutmeData = {
+        fr: map.get('fr')[0],
+        en: map.get('en')[0]
+      }
+      if (this.$i18n.locale !== 'en') {
+        return aboutmeData.fr
+      } else {
+        return aboutmeData.en
+      }
+    },
+    contactMe() {
+      const contactMe = require.context('@/content/contact', false, /.*\.(md)/)
+      const contactMeMap = contactMe.keys().map((contact) => contactMe(contact))
+      const contactMeFr = contactMeMap.filter(
+        (contact) => contact.attributes.lang === 'fr'
+      )
+      const contactMeEn = contactMeMap.filter(
+        (contact) => contact.attributes.lang === 'en'
+      )
+      const map = new Map()
+      map.set('fr', contactMeFr)
+      map.set('en', contactMeEn)
+      const contactMeData = {
+        fr: map.get('fr')[0],
+        en: map.get('en')[0]
+      }
+      if (this.$i18n.locale !== 'en') {
+        return contactMeData.fr
+      } else {
+        return contactMeData.en
+      }
+    },
+    socialNetworks() {
+      return socials
     },
     ...mapState(['SiteSettings'])
   },
