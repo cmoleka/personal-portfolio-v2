@@ -1,6 +1,6 @@
 ---
 title: Itraws V1
-image: 'https://cmoleka.github.io/img/projects/itraws.png'
+image: '/img/projects/itrawsv1.png'
 description: 'The first iteration of my freelance services website, built with NuxtJS and hosted on Netlify.'
 github: ''
 external: 'https://www.itraws.com'

@@ -3,7 +3,7 @@ title: Portfolio V2
 image: '/img/projects/portfoliov2.png'
 description: 'La deuxieme version de mon site portfolio personel.'
 github: ''
-external: 'http://cmoleka.github.io/'
+external: 'https://dev.carlomoleka.com/'
 tech:
   - Nuxt
   - Bootstrap
