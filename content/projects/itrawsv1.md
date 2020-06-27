@@ -9,6 +9,6 @@ tech:
   - Contentful
   - Bootstrap
   - SCSS
-featured: 'true'
+featured: 'false'
 lang: en
 ---

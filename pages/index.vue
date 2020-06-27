@@ -93,6 +93,7 @@
           <ul class="section__list">
             <li
               v-for="skill in aboutMeContent.attributes.skills"
+              :key="skill.id"
               class="text-white"
             >
               {{ skill }}
@@ -126,6 +127,7 @@
             slot="work__company_name--tab"
             v-for="job in allJobs"
             v-on:click.prevent="setActive(job.attributes.company)"
+            :key="job.id"
             :class="{ work__tab__active: isActive(job.attributes.company) }"
             class="work__company_name work__tab mb-0 py-2"
           >
@@ -134,6 +136,7 @@
           <div
             slot="work__details"
             v-for="job in allJobs"
+            :key="job.id"
             :class="{ work__tab__display: isActive(job.attributes.company) }"
             class="work__details"
           >
@@ -158,7 +161,11 @@
               {{ job.attributes.range }}
             </p>
             <ul class="section__list">
-              <li v-for="task in job.attributes.tasks" class="text-white">
+              <li
+                v-for="task in job.attributes.tasks"
+                :key="task.id"
+                class="text-white"
+              >
                 {{ task }}
               </li>
             </ul>
@@ -178,7 +185,7 @@
       </h1>
       <div slot="section__content">
         <projects-featured
-          v-if="projectsFeatured.length >= 1"
+          v-show="projectsFeatured.length >= 1"
           v-for="(featured, index) in projectsFeatured"
           :key="index"
           class="mb-4"
@@ -198,7 +205,7 @@
             {{ featured.attributes.description }}
           </p>
           <ul slot="Featured__Technologies" class="Featured__Tech--List">
-            <li v-for="tech in featured.attributes.tech">
+            <li v-for="tech in featured.attributes.tech" :key="tech.id">
               {{ tech }}
             </li>
           </ul>
@@ -224,7 +231,7 @@
         <projects-single>
           <div
             slot="Projects_Single_Details"
-            v-if="projectsNotFeatured.length >= 1"
+            v-show="projectsNotFeatured.length >= 1"
             v-for="(project, index) in projectsNotFeatured"
             :key="index"
             v-scroll-reveal="{
@@ -244,7 +251,9 @@
               {{ project.attributes.description }}
             </p>
             <ul slot="Single__Technologies">
-              <li v-for="tech in project.attributes.tech">{{ tech }}</li>
+              <li v-for="tech in project.attributes.tech" :key="tech.id">
+                {{ tech }}
+              </li>
             </ul>
             <ul slot="Single__Links" class="Single__Links mt-2">
               <li v-if="project.attributes.github">
@@ -305,7 +314,8 @@
     <social-networks>
       <ul class="SocialNetworks__Social">
         <li
-          v-for="(value, name) in socialNetworks.attributes"
+          v-for="(value, name, index) in socialNetworks.attributes"
+          :key="index"
           class="SocialNetworks__ListItem"
         >
           <a :href="value" class="SocialNetworks__Link">

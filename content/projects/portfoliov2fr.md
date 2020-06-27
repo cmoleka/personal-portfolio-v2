@@ -10,6 +10,6 @@ tech:
   - SCSS
   - AnimeJS
   - AOS
-featured: 'true'
+featured: 'false'
 lang: fr
 ---

@@ -8,6 +8,6 @@ tech:
   - Nuxt
   - Contentful
   - Bootstrap
-featured: 'true'
+featured: 'false'
 lang: fr
 ---
