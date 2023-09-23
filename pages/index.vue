@@ -111,8 +111,8 @@
       </div>
     </section-component>
     <section-component
-      id="workexperience"
       v-if="SiteSettings.isExperienceActive && allJobs.length >= 1"
+      id="workexperience"
       v-scroll-reveal="{ delay: 500, duration: 1000, origin: 'left' }"
     >
       <h1
@@ -124,18 +124,18 @@
       <div slot="section__content">
         <SectionWorkExperience>
           <h2
-            slot="work__company_name--tab"
             v-for="job in allJobs"
-            v-on:click.prevent="setActive(job.attributes.company)"
+            slot="work__company_name--tab"
             :key="job.id"
             :class="{ work__tab__active: isActive(job.attributes.company) }"
             class="work__company_name work__tab mb-0 py-2"
+            @click.prevent="setActive(job.attributes.company)"
           >
             {{ job.attributes.company }}
           </h2>
           <div
-            slot="work__details"
             v-for="job in allJobs"
+            slot="work__details"
             :key="job.id"
             :class="{ work__tab__display: isActive(job.attributes.company) }"
             class="work__details"
@@ -185,8 +185,8 @@
       </h1>
       <div slot="section__content">
         <projects-featured
-          v-show="projectsFeatured.length >= 1"
           v-for="(featured, index) in projectsFeatured"
+          v-show="projectsFeatured.length >= 1"
           :key="index"
           class="mb-4"
         >
@@ -230,9 +230,9 @@
         </projects-featured>
         <projects-single>
           <div
-            slot="Projects_Single_Details"
-            v-show="projectsNotFeatured.length >= 1"
             v-for="(project, index) in projectsNotFeatured"
+            v-show="projectsNotFeatured.length >= 1"
+            slot="Projects_Single_Details"
             :key="index"
             v-scroll-reveal="{
               delay: 800 + parseInt(100 * index),
@@ -329,10 +329,10 @@
 
 <script>
 import { mapState } from 'vuex'
-import Headline from '~/components/Headline.vue'
-import SectionComponent from '~/components/Section.vue'
+import Headline from '~/components/HeadlineComponent.vue'
+import SectionComponent from '~/components/SectionComponent.vue'
 import SectionWorkExperience from '~/components/SectionWorkExperience'
-import ButtonComponent from '~/components/Button.vue'
+import ButtonComponent from '~/components/ButtonComponent.vue'
 import ProjectsFeatured from '~/components/SectionProjectsFeatured.vue'
 import ProjectsSingle from '~/components/SectionProjectsSingle.vue'
 import SocialNetworks from '~/components/SocialNetworks.vue'

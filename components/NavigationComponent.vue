@@ -66,7 +66,6 @@
       <nuxt-link
         v-for="locale in availableLocales"
         :key="locale.code"
-        :to="switchLocalePath(locale.code)"
         v-scroll-reveal="{
           delay: 2400,
           duration: 800,
@@ -74,6 +73,7 @@
           interval: 600,
           origin: 'top'
         }"
+        :to="switchLocalePath(locale.code)"
         class="nav-link text-white Navigation__Link"
         >{{ locale.name }}</nuxt-link
       >
@@ -83,7 +83,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import Logo from '~/components/Logo.vue'
+import Logo from '~/components/LogoComponent.vue'
 export default {
   components: {
     Logo
